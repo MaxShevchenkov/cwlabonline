@@ -1,0 +1,9 @@
+<div class="documents card mt-2">
+  <div class="card-body">
+    <h5 class="card-title">{{document.title}}</h5>
+    <p class="card-text">{{document.description}}</p>
+    <p class="card-text">Автор: {{document.author}}</p>
+    <p class="card-text">Дата публикации: {{document.dateTime}}</p>
+    <button class="btn btn-danger" [routerLink]="['/document', document.id]">Просмотр</button>
+  </div>
+</div>

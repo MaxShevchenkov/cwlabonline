@@ -1,0 +1,24 @@
+<div *ngIf="form;else loading" class="mt-5">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <h1 class="text-center">Редактирование документа</h1>
+    <div class="mt-5">
+      <small *ngIf="isCreated" class="alert alert-success">Новость была успешно отредактирована. Перейдите в панель для мониторинга</small>
+    </div>
+    <input type="text" id="title" class="form-control mt-5 mb-3" formControlName="title" placeholder="Заголовок новости">
+
+    <quill-editor formControlName="body"></quill-editor>
+
+    <input type="text" id="author" class="form-control mt-2" formControlName="author" placeholder="Автор">
+
+    <button type="submit" class="btn btn-danger mt-2">Редактировать</button>
+    <a class="btn btn-danger ml-2 mt-2" [routerLink]="['/admin', 'news-dashboard']" >Назад в панель контроля</a>
+  </form>
+</div>
+
+<ng-template #loading>
+  <div class="loader text-center">
+    <div class="spinner-border spinner-border-lg text-danger text-center" role="status">
+      <span class="sr-only">Загрузка компонентов...</span>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,17 @@
+<form class="container" [formGroup]="form" (ngSubmit)="submit()">
+  <h1 class="text-center mt-5" >Создание нового документа</h1>
+  <div class="mt-5">
+    <small *ngIf="isCreated" class="alert alert-success">Документ был успешно создан. Перейдите в панель для мониторинга</small>
+  </div>
+  <input type="text" id="title" class="form-control mt-5" formControlName="title" placeholder="Заголовок документа">
+  <input type="text" id="description" class="form-control mt-2" formControlName="description" placeholder="Краткое описание">
+  <input type="text" id="link" class="form-control mt-2 mb-2" formControlName="link" placeholder="Ссылка на проект">
+
+  <quill-editor formControlName="body"></quill-editor>
+
+  <label for="author" class="sr-only">Автор</label>
+  <input type="text" id="author" class="form-control mt-2" formControlName="author" placeholder="Автор">
+
+  <button type="submit" class=" btn btn-danger mt-2">Публикация</button>
+  <a class="btn btn-danger ml-2 mt-2" [routerLink]="['/admin', 'dashboard']" >Назад в панель контроля</a>
+</form>

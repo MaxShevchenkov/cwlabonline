@@ -1,0 +1,17 @@
+
+<form class="container" [formGroup]="form" (ngSubmit)="submit()">
+  <h1 class="text-center mt-5" >Новая новость</h1>
+  <div class="mt-5">
+    <small *ngIf="isCreated" class="alert alert-success">Новость была успешно создана. Перейдите в панель для мониторинга</small>
+  </div>
+  <input type="text" id="title" class="form-control mt-5 mb-2" formControlName="title" placeholder="Заголовок новости">
+
+  <quill-editor formControlName="body"></quill-editor>
+
+  <label for="author" class="sr-only">Автор</label>
+  <input type="text" id="author" class="form-control mt-2" formControlName="author" placeholder="Автор">
+
+  <button type="submit" class=" btn btn-danger mt-2">Публикация</button>
+  <a class="btn btn-danger ml-2 mt-2" [routerLink]="['/admin', 'news-dashboard']" >Назад в панель контроля</a>
+</form>
+
